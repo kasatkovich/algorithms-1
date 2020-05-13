@@ -19,6 +19,13 @@ https://leetcode.com/problems/reverse-linked-list/
 
 https://leetcode.com/problems/middle-of-the-linked-list/
 
+def middleNode(self, head):
+        once = twice = head
+        while twice and twice.next:
+            once = once.next
+            twice = twice.next.next
+        return once    
+
 ## Palindrome Linked List
 
 https://leetcode.com/problems/palindrome-linked-list/

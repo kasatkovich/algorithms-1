@@ -8,7 +8,22 @@
 
 https://leetcode.com/problems/insert-interval/
 
-
+class Solution(object):
+    def insert(self, intervals, newInterval):
+        intervals.append(newInterval)
+        if (intervals == []):
+            return intervals
+        intervals.sort(key = lambda x: x[0])
+        new_intervals = []
+        check_intervals = intervals[0]
+        for i in range(1, len(intervals)):
+            if(check_intervals[1] >= (intervals[i])[0]):
+                check_intervals[1] = max(check_intervals[1],(intervals[i])[1])
+            else:
+                new_intervals.append(check_intervals)
+                check_intervals = intervals[i]
+        new_intervals.append(check_intervals)
+        return new_intervals
 
 ## Merge Intervals
 

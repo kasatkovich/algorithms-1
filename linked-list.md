@@ -31,6 +31,23 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
+def removeNthFromEnd(self, head, n):
+        self.__init__()
+        self.next = head
+        g = 0
+        curr = head
+        while (curr != None):
+            g = g+1
+            curr = curr.next
+        print(g)    
+        k = g-n
+        curr = self
+        while (k>0):
+            curr = curr.next
+            k = k-1
+        curr.next = curr.next.next
+        return self.next
+
 ## Linked List Cycle II
 
 https://leetcode.com/problems/linked-list-cycle-ii/

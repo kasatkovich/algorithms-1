@@ -15,6 +15,16 @@
 
 https://leetcode.com/problems/reverse-linked-list/
 
+def reverseList(self, head):
+        prev = None
+        curr = head
+        while (curr != None):
+            nextT = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nextT
+        return prev    
+
 ## Middle Of The Linked List
 
 https://leetcode.com/problems/middle-of-the-linked-list/

@@ -16,6 +16,19 @@
 
 https://leetcode.com/problems/binary-tree-inorder-traversal/
 
+def helper(self,root, res): 
+        if (root != None): 
+            if (root.left != None): 
+                self.helper(root.left, res)            
+            res.append(root.val)
+            if (root.right != None):
+                self.helper(root.right, res) 
+                
+ def inorderTraversal(self, root):
+        res = []
+        self.helper(root, res)
+        return res
+
 ## Symmetric Tree
 
 https://leetcode.com/problems/symmetric-tree/

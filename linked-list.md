@@ -39,6 +39,16 @@ https://leetcode.com/problems/linked-list-cycle-ii/
 
 https://leetcode.com/problems/linked-list-cycle/
 
+def hasCycle(self, head: ListNode) -> bool:
+        nodes =[]
+        while head != None:
+            if head in nodes:
+                return True
+            else:
+                nodes.append(head)
+            head = head.next
+        return False         
+
 ## Reorder List
 
 https://leetcode.com/problems/reorder-list/

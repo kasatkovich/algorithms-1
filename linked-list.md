@@ -50,3 +50,31 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/
 ## Sort List
 
 https://leetcode.com/problems/sort-list/
+
+def sortList(self, head):
+        if (head == None or head.next == None):
+            return head
+        slow = head
+        fast = head
+        while( fast.next != None and fast.next.next != None):
+            slow = slow.next
+            fast = fast.next.next
+        right = self.sortList(slow.next)
+        slow.next = None
+        left = self.sortList(head)
+        result = ListNode(None)
+        previous = result
+        while( right != None and left != None):
+            if left.val < right.val:
+                previous.next = left
+                previous = left
+                left = left.next
+            else:
+                previous.next = right
+                previous = right
+                right = right.next
+        if left != None:
+            previous.next = left
+        elif right != None:
+            previous.next = right
+        return result.next

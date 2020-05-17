@@ -39,15 +39,13 @@ https://leetcode.com/problems/linked-list-cycle-ii/
 
 https://leetcode.com/problems/linked-list-cycle/
 
-def hasCycle(self, head: ListNode) -> bool:
-        nodes =[]
-        while head != None:
-            if head in nodes:
-                return True
-            else:
-                nodes.append(head)
-            head = head.next
-        return False         
+    def hasCycle(self, head):
+        if not head or not head.next: return False        
+        slow, fast = head, head.next
+        while slow != fast:
+            if not fast or not fast.next: return False
+            slow, fast = slow.next, fast.next.next
+        return True 
 
 ## Reorder List
 

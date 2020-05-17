@@ -14,7 +14,7 @@ https://leetcode.com/problems/insert-interval/
 https://leetcode.com/problems/merge-intervals/
 
 def merge(self, intervals):
-        if (intervals == []):
+        if (not intervals):
             return intervals
         intervals.sort(key = lambda x: x[0])
         new_intervals = []

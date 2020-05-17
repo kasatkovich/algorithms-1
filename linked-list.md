@@ -44,17 +44,19 @@ https://leetcode.com/problems/linked-list-cycle/
 https://leetcode.com/problems/reorder-list/
 
 def reorderList(self, head):
-        if(head == None or head.next == None or head.next.next == None):
-            return head
-        new = head.next
-        current = new
-        while (current.next.next != None):
-            current = current.next
-        tail = current.next
-        current.next = None
-        tail.next = self.reorderList(new)
-        head.next = tail
-        return head
+                    s, copy = [], head
+	    while copy:
+		    s.append(copy)
+		    copy = copy.next
+	    while head:
+		    if head.next == s[-1]:
+			    head = head.next
+		    if head == s[-1]:
+			    head.next = None
+			    return
+		    replace, head.next = head.next, s.pop()
+		    head.next.next = replace
+		    head = head.next.next
 
 ## Intersection Of Two Linked List
 

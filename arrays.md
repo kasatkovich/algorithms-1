@@ -14,7 +14,8 @@ https://leetcode.com/problems/two-sum/
 https://leetcode.com/problems/3sum/
 
 
-    def threeSum(self, nums):
+   
+   def threeSum(self, nums):
         new = set() 
         if len(nums) < 3: return new 
         if nums.count(0) >= 3: new.add((0,0,0)) 

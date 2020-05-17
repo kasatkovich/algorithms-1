@@ -20,7 +20,7 @@ https://leetcode.com/problems/merge-intervals/
 https://leetcode.com/problems/non-overlapping-intervals/
 
 def eraseOverlapIntervals(self, intervals):
-        if (intervals == []):
+        if (not intervals):
             return 0
         sorted_intervals = sorted(intervals, key = lambda x: x[0])
         end = (sorted_intervals[0])[1]

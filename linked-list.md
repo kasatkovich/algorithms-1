@@ -27,17 +27,25 @@ https://leetcode.com/problems/palindrome-linked-list/
 
 https://leetcode.com/problems/merge-two-sorted-lists/
 
-def mergeTwoLists(self, l1, l2):
+    def mergeTwoLists(self, l1, l2):
+        x =[]
         if not l1:
             return l2
         if not l2:
             return l1
-        if (l1.val <= l2.val):   
-            l1.next = self.mergeTwoLists(l1.next,l2)
-            return l1
-        else:   
-            l2.next = self.mergeTwoLists(l1,l2.next)
-            return l2  
+        while (l1):
+            x.append(l1.val)
+            l1 =l1.next
+        while(l2):
+            x.append(l2.val)
+            l2 = l2.next
+        x = sorted(x)
+        a = ListNode(x[0])
+        b = a
+        for i in x[1:]:
+            a.next = ListNode(i)
+            a = a.next
+        return b
 
 ## Remove Nth Node From End Of The List
 

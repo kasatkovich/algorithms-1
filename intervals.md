@@ -10,7 +10,7 @@ https://leetcode.com/problems/insert-interval/
 
 def insert(self, intervals, newInterval):
         intervals.append(newInterval)
-        if (intervals == []):
+        if (not intervals):
             return intervals
         intervals.sort(key = lambda x: x[0])
         new_intervals = []

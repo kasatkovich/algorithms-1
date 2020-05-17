@@ -13,6 +13,7 @@ https://leetcode.com/problems/insert-interval/
 
 https://leetcode.com/problems/merge-intervals/
 
+
 def merge(self, intervals):
         if (not intervals):
             return intervals

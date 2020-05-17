@@ -51,12 +51,12 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 https://leetcode.com/problems/sort-list/
 
-def sortList(self, head):
-        if (head == None or head.next == None):
+   def sortList(self, head):
+        if (not head or not head.next ):
             return head
         slow = head
         fast = head
-        while( fast.next != None and fast.next.next != None):
+        while( fast.next and fast.next.next):
             slow = slow.next
             fast = fast.next.next
         right = self.sortList(slow.next)
@@ -64,7 +64,7 @@ def sortList(self, head):
         left = self.sortList(head)
         result = ListNode(None)
         previous = result
-        while( right != None and left != None):
+        while(right and left):
             if left.val < right.val:
                 previous.next = left
                 previous = left
@@ -73,8 +73,9 @@ def sortList(self, head):
                 previous.next = right
                 previous = right
                 right = right.next
-        if left != None:
+        if left:
             previous.next = left
-        elif right != None:
+        elif right:
             previous.next = right
         return result.next
+

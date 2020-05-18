@@ -8,6 +8,7 @@
 
 https://leetcode.com/problems/insert-interval/
 
+
 def insert(self, intervals, newInterval):
         if not newInterval:
             return intervals

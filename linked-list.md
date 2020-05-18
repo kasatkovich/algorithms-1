@@ -47,16 +47,15 @@ https://leetcode.com/problems/reorder-list/
 
 https://leetcode.com/problems/intersection-of-two-linked-lists/
 
-    def getIntersectionNode(self, headA, headB):
-        visited=set()
-        while(headA):
-            visited.add(headA)
-            headA=headA.next
-        while headB:
-            if headB in visited:
-                return headB
-            headB=headB.next
-        return None  
+   def getIntersectionNode(self, headA, headB):
+        if not headA or not headB:
+            return None
+        A_pointer = headA
+        B_pointer = headB
+        while A_pointer != B_pointer:
+            A_pointer = headB if not A_pointer else A_pointer.next
+            B_pointer = headA if not B_pointer else B_pointer.next
+        return A_pointer
 
 ## Sort List
 

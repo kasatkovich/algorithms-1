@@ -23,7 +23,8 @@ https://leetcode.com/problems/middle-of-the-linked-list/
 
 https://leetcode.com/problems/palindrome-linked-list/
 
-       self.res  = True; self.node = head
+       self.res  = True
+       self.node = head
         def hold(root):
             if not root: return
             hold(root.next)

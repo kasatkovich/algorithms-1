@@ -33,6 +33,8 @@ https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 ```python
 def removeNthFromEnd(self, head, n):
+        if not head:
+            return None
         result = head
         runner = head
         for i in range(n):

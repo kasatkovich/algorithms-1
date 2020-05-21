@@ -13,7 +13,7 @@ https://leetcode.com/problems/insert-interval/
 
 https://leetcode.com/problems/merge-intervals/
 
-
+```python
 def merge(self, intervals):
         if (not intervals):
             return intervals
@@ -28,7 +28,8 @@ def merge(self, intervals):
                 check_intervals = intervals[i]
         new_intervals.append(check_intervals)
         return new_intervals
-        
+  
+  ```
 
 ## Non-overlapping Intervals
 

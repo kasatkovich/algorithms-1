@@ -20,10 +20,10 @@ https://leetcode.com/problems/binary-tree-inorder-traversal/
 def helper(self, root, res):
     if not root:
         return None
-    if (root.left):
+    if root.left:
         self.helper(root.left, res)
     res.append(root.val)
-    if (root.right):
+    if root.right:
         self.helper(root.right, res)
 
 

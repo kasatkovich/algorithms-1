@@ -26,7 +26,7 @@ def subarraySum(self, nums, k):
         d = {0: 1}
         for i in range(len(nums)):
             sum = sum + nums[i]
-            if(sum-k in d.keys()):
+            if sum-k in d.keys():
                 c = c + d.get(sum - k)
             d.update({sum: d.setdefault(sum, 0)+1})
         return c

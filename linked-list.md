@@ -45,19 +45,19 @@ https://leetcode.com/problems/reorder-list/
 
 ```python
 def reorderList(self, head):
-        s, copy = [], head
-        while copy:
-            s.append(copy)
-            copy = copy.next
-        while head:
-            if head.next == s[-1]:
-                head = head.next
-            if head == s[-1]:
-                head.next = None
-                return
-            replace, head.next = head.next, s.pop()
-            head.next.next = replace
-            head = head.next.next
+    s, copy = [], head
+    while copy:
+        s.append(copy)
+        copy = copy.next
+    while head:
+        if head.next == s[-1]:
+            head = head.next
+        if head == s[-1]:
+            head.next = None
+            return
+        replace, head.next = head.next, s.pop()
+        head.next.next = replace
+        head = head.next.next
 
 ```
 

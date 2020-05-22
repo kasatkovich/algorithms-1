@@ -104,6 +104,19 @@ https://leetcode.com/problems/reorder-list/
 
 https://leetcode.com/problems/intersection-of-two-linked-lists/
 
+```python
+def getIntersectionNode(self, headA, headB):
+     if not headA or not headB:
+         return None
+     curNodeA = headA
+     curNodeB = headB
+     while curNodeA != curNodeB:
+         curNodeA = headB if not curNodeA else curNodeA.next
+         curNodeB = headA if not curNodeB else curNodeB.next
+     return curNodeA
+
+```
+
 ## Sort List
 
 https://leetcode.com/problems/sort-list/

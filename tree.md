@@ -38,6 +38,44 @@ def inorderTraversal(self, root):
 
 https://leetcode.com/problems/symmetric-tree/
 
+```python
+def isSymmetric(self, root: TreeNode) -> bool:
+    if root is None:
+        return True
+    return self.isSymetricalHelper(root.left, root.right)
+
+
+def isSymetricalHelper(self, left: TreeNode, right: TreeNode):
+    if not left and not right:
+        return True
+    elif not left or not right or left.val != right.val:
+        return False
+    return self.isSymetricalHelper(left.left, right.right) and self.isSymetricalHelper(left.right, right.left)
+
+
+def isSymmetric(self, root: TreeNode) -> bool:
+    if root:
+        queue = deque([root, root])
+        while queue:
+            val1 = queue.pop()
+            val2 = queue.pop()
+
+            if not val1 and not val2:
+                continue
+            if not val1 or not val2:
+                return False
+            if val1.val != val2.val:
+                return False
+            queue.append(val1.left)
+            queue.append(val2.right)
+            queue.append(val1.right)
+            queue.append(val2.left)
+
+        return True
+    return True
+
+```
+
 ## Maximum Depth of Binary Tree
 
 https://leetcode.com/problems/maximum-depth-of-binary-tree/

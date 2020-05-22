@@ -40,6 +40,20 @@ https://leetcode.com/problems/symmetric-tree/
 
 ```python
 def isSymmetric(self, root: TreeNode) -> bool:
+    if root is None:
+        return True
+    return self.isSymetricalHelper(root.left, root.right)
+
+
+def isSymetricalHelper(self, left: TreeNode, right: TreeNode):
+    if not left and not right:
+        return True
+    elif not left or not right or left.val != right.val:
+        return False
+    return self.isSymetricalHelper(left.left, right.right) and self.isSymetricalHelper(left.right, right.left)
+
+
+def isSymmetric(self, root: TreeNode) -> bool:
     if root:
         queue = deque([root, root])
         while queue:

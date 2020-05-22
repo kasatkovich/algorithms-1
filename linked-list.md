@@ -15,6 +15,7 @@
 
 https://leetcode.com/problems/reverse-linked-list/
 
+```python
 def reverseList(self, head):
         prev = None
         curr = head
@@ -25,16 +26,21 @@ def reverseList(self, head):
             curr = nextT
         return prev    
 
+```
+
 ## Middle Of The Linked List
 
 https://leetcode.com/problems/middle-of-the-linked-list/
 
+```python
 def middleNode(self, head):
         once = twice = head
         while twice and twice.next:
             once = once.next
             twice = twice.next.next
         return once    
+
+```
 
 ## Palindrome Linked List
 
@@ -52,6 +58,7 @@ https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 https://leetcode.com/problems/linked-list-cycle-ii/
 
+```python
  def detectCycle(self, head):
         slow = head
         fast = head
@@ -70,10 +77,13 @@ https://leetcode.com/problems/linked-list-cycle-ii/
             fast = fast.next         
         return slow
 
+```
+
 ## Linked List Cycle 
 
 https://leetcode.com/problems/linked-list-cycle/
 
+```python
     def hasCycle(self, head):
         if not head or not head.next: 
             return False        
@@ -83,6 +93,8 @@ https://leetcode.com/problems/linked-list-cycle/
                 return False
             slow, fast = slow.next, fast.next.next
         return True 
+
+```
 
 ## Reorder List
 

@@ -51,6 +51,20 @@ https://leetcode.com/problems/same-tree/
 ## Invert Binary Tree
 https://leetcode.com/problems/invert-binary-tree/
 
+```python
+def invertTree(self, root):
+    if not root:
+        return
+
+    root.left, root.right = root.right, root.left
+
+    self.invertTree(root.right)
+    self.invertTree(root.left)
+
+    return root
+
+```
+
 ## Path Sum
 
 https://leetcode.com/problems/path-sum/

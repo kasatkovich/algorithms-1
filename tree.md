@@ -59,6 +59,32 @@ https://leetcode.com/problems/path-sum/
 
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
+```python
+def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    level_order = []
+    if root is None:
+        return level_order
+
+    queue = []
+    queue.append(root)
+
+    while len(queue) != 0:
+        curr_level_size = len(queue)
+        curr_level = []
+        for i in range(curr_level_size):
+            curr_node = queue.pop(0)
+            curr_level.append(curr_node.val)
+            if (curr_node.left) is not None:
+                queue.append(curr_node.left)
+            if (curr_node.right) is not None:
+                queue.append(curr_node.right)
+
+        level_order.append(curr_level)
+
+    return level_order
+
+```
+
 ## Subtree of Another Tree
 
 https://leetcode.com/problems/subtree-of-another-tree/

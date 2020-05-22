@@ -38,6 +38,18 @@ def isPalindrome(self, head: ListNode) -> bool:
     hold(head)
     return self.res
 
+def isPalindrome(self, head: ListNode) -> bool:
+    slow = fast = head
+    prev = None
+    while fast and fast.next:
+        fast = fast.next.next
+        slow.next, slow, prev = prev, slow.next, slow
+    if fast:
+        slow = slow.next
+    while slow and slow.val == prev.val:
+        slow, prev = slow.next, prev.next
+    return not slow
+
 ```
 
 ## Merge Two Sorted List

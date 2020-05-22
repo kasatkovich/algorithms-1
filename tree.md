@@ -82,10 +82,8 @@ def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
             if candidate_node is None and subtree_node is None:
                 continue
             elif candidate_node and subtree_node and candidate_node.val == subtree_node.val:
-                stack = (
-                    candidate_node.left, subtree_node.left, (
+                stack = (candidate_node.left, subtree_node.left, (
                         candidate_node.right, subtree_node.right, stack))
-            else:
                 break
         else:
             return True

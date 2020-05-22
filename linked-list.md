@@ -51,12 +51,12 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/
 def getIntersectionNode(self, headA, headB):
      if not headA or not headB:
          return None
-     Apointer = headA
-     Bpointer = headB
-     while Apointer != Bpointer:
-         Apointer = headB if not Apointer else Apointer.next
-         Bpointer = headA if not Bpointer else Bpointer.next
-     return Apointer
+     curNodeA = headA
+     curNodeB = headB
+     while curNodeA != curNodeB:
+         curNodeA = headB if not curNodeA else curNodeA.next
+         curNodeB = headA if not curNodeB else curNodeB.next
+     return curNodeA
 
 ```
 

@@ -68,7 +68,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
     queue = []
     queue.append(root)
 
-    while len(queue) != 0:
+    while len(queue):
         curr_level_size = len(queue)
         curr_level = []
         for i in range(curr_level_size):

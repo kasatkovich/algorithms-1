@@ -59,7 +59,7 @@ def isSameTree(self, p, q):
 
 def isSameTree(self, p, q):
 
-    def checking(p, q):
+    def check_nodes(p, q):
         if not p and not q:
             return True
         if not q or not p:
@@ -71,7 +71,7 @@ def isSameTree(self, p, q):
     deq = deque([(p, q), ])
     while deq:
         p, q = deq.popleft()
-        if not checking(p, q):
+        if not check_nodes(p, q):
             return False
         if p:
             deq.append((p.left, q.left))

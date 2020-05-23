@@ -28,29 +28,21 @@ https://leetcode.com/problems/palindrome-linked-list/
 https://leetcode.com/problems/merge-two-sorted-lists/
 
 ```python
-def mergeTwoLists(self, l1, l2):
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
     if not l1 and not l2:
         return None
     if not l1:
         return l2
     if not l2:
         return l1
-    dummy_head = ListNode(-1)
-    prev = dummy_head
-    dummy_head.next = l1
-    while l1 and l2:
-        if l1.val <= l2.val:
-            prev = l1
-            l1 = l1.next
-        else:
-            prev.next = l2
-            prev = l2
-            temp = l2.next
-            l2.next = l1
-            l2 = temp
-    if l2:
-        prev.next = l2
-    return dummy_head.next
+    small, large = (l1, l2) if l1.val < l2.val else (l2, l1)
+    head = small
+    while small.next:
+        if small.next.val > large.val:
+            small.next, large = large, small.next
+        small = small.next
+    small.next = large
+    return head
 
 ```
 

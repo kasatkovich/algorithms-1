@@ -12,7 +12,7 @@ https://leetcode.com/problems/two-sum/
 def twoSum(self, nums, target):
     i = 0
     j = len(nums) - 1
-    num1 = sorted(zip(range(len(nums)), nums), key=lambda x: x[1])
+    num1 = sorted([(index, elem) for index, elem in enumerate(nums)], key=lambda x: x[1])
     while True:
         res = num1[i][1] + num1[j][1]
         if res == target:
@@ -21,7 +21,7 @@ def twoSum(self, nums, target):
             j -= 1
         else:
             i += 1
-                
+
 ```
 
 ## 3Sum

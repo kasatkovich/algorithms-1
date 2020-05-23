@@ -76,7 +76,7 @@ def kthSmallest(self, root: TreeNode, k: int) -> int:
             root = root.left
         root = stack.pop()
         k -= 1
-        if not k:
+        if k == 0:
             return root.val
         root = root.right
 

@@ -44,6 +44,26 @@ https://leetcode.com/problems/linked-list-cycle/
 https://leetcode.com/problems/reorder-list/
 
 ```python
+def dfs(self, node, head):
+    if not node:
+        return head
+    head = self.dfs(node.next, head)
+    if not head:
+        return
+    if head == node or head.next == node:
+        node.next = None
+        return
+    head_original_next = head.next
+    head.next = node
+    node.next = head_original_next
+    return head_original_next
+
+
+def reorderList(self, head: ListNode) -> None:
+    self.dfs(head, head)
+
+
+
 def reorderList(self, head):
     s, copy = [], head
     while copy:

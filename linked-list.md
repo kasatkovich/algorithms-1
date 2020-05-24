@@ -35,6 +35,30 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         return l2
     if not l2:
         return l1
+    head = ListNode(0)
+    index = head
+    while l1 and l2:
+        if l1.val < l2.val:
+            index.next = l1
+            l1 = l1.next
+        else:
+            index.next = l2
+            l2 = l2.next
+        index = index.next
+    if not l1:
+        index.next = l2
+    if not l2:
+        index.next = l1
+    return head.next
+
+
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    if not l1 and not l2:
+        return None
+    if not l1:
+        return l2
+    if not l2:
+        return l1
     small, large = (l1, l2) if l1.val < l2.val else (l2, l1)
     head = small
     while small.next:

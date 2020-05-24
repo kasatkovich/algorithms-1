@@ -64,6 +64,25 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/
 https://leetcode.com/problems/subtree-of-another-tree/
 
 ```python
+def isSubtree(self, s, t):
+    if not t:
+        return True
+    if not s:
+        return False
+    if s.val == t.val and self.isSame(s, t):
+        return True
+    return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
+
+
+def isSame(self, s, t):
+    if not s and not t:
+        return True
+    if not s or not t or s.val != t.val:
+        return False
+    return self.isSame(s.left, t.left) and self.isSame(s.right, t.right)
+
+
+
 def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
     stack = (s, None)
     candidate_roots = None

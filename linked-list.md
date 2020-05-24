@@ -51,31 +51,40 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 https://leetcode.com/problems/sort-list/
 
-   def sortList(self, head):
-        if (not head or not head.next ):
-            return head
-        slow = head
-        fast = head
-        while( fast.next and fast.next.next):
-            slow = slow.next
-            fast = fast.next.next
-        right = self.sortList(slow.next)
-        slow.next = None
-        left = self.sortList(head)
-        result = ListNode(None)
-        previous = result
-        while(right and left):
-            if left.val < right.val:
-                previous.next = left
-                previous = left
-                left = left.next
-            else:
-                previous.next = right
-                previous = right
-                right = right.next
-        if left:
-            previous.next = left
-        elif right:
-            previous.next = right
-        return result.next
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    head = ListNode(0)
+    index = head
+    while l1 and l2:
+        if l1.val < l2.val:
+            index.next = l1
+            l1 = l1.next
+        else:
+            index.next = l2
+            l2 = l2.next
+        index = index.next
+    if not l1:
+        index.next = l2
+    if not l2:
+        index.next = l1
+    return head.next
+
+
+def middleNode(self, head: ListNode) -> ListNode:
+    slowPoint = head
+    fastPoint = head
+    while fastPoint.next and fastPoint.next.next:
+        slowPoint = slowPoint.next
+        fastPoint = fastPoint.next.next
+    return slowPoint
+
+
+def sortList(self, head: ListNode) -> ListNode:
+    if not head or not head.next:
+        return head
+    middle = self.middleNode(head)
+    right = self.sortList(middle.next)
+    middle.next = None
+    left = self.sortList(head)
+    return self.mergeTwoLists(left, right)
+
 

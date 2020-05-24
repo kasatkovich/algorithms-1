@@ -46,6 +46,35 @@ def middleNode(self, head):
 
 https://leetcode.com/problems/palindrome-linked-list/
 
+```python
+def isPalindrome(self, head: ListNode) -> bool:
+    self.res = True
+    self.node = head
+
+    def hold(root):
+        if not root:
+            return
+        hold(root.next)
+        if root.val != self.node.val:
+            self.res = False
+        self.node = self.node.next
+    hold(head)
+    return self.res
+
+def isPalindrome(self, head: ListNode) -> bool:
+    slow = fast = head
+    prev = None
+    while fast and fast.next:
+        fast = fast.next.next
+        slow.next, slow, prev = prev, slow.next, slow
+    if fast:
+        slow = slow.next
+    while slow and slow.val == prev.val:
+        slow, prev = slow.next, prev.next
+    return not slow
+
+```
+
 ## Merge Two Sorted List
 
 https://leetcode.com/problems/merge-two-sorted-lists/

@@ -44,6 +44,39 @@ https://leetcode.com/problems/linked-list-cycle/
 https://leetcode.com/problems/reorder-list/
 
 ```python
+def reverseList(self, head):
+    prev = None
+    curr = head
+    while curr:
+        nextT = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nextT
+    return prev
+
+
+def reorderList(self, head):
+    if not head:
+        return head
+    fastPoint = head
+    slowPoint = head
+    while fastPoint and fastPoint.next:
+        slowPoint = slowPoint.next
+        fastPoint = fastPoint.next.next
+
+    tail = slowPoint
+    half = slowPoint
+    slowPoint = self.reverseList(half)
+    current = None
+    while current != tail:
+        current = head.next
+        head.next = slowPoint
+        head = slowPoint
+        slowPoint = current
+
+
+
+
 def dfs(self, node, head):
     if not node:
         return head

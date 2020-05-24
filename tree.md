@@ -70,7 +70,7 @@ https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 ```python
 def kthSmallest(self, root: TreeNode, k: int) -> int:
     stack = []
-    while True:
+    while root or stack:
         while root:
             stack.append(root)
             root = root.left

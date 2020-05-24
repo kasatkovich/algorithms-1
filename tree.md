@@ -156,6 +156,53 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/
 
 https://leetcode.com/problems/subtree-of-another-tree/
 
+```python
+def isSubtree(self, s, t):
+    if not t:
+        return True
+    if not s:
+        return False
+    if s.val == t.val and self.isSame(s, t):
+        return True
+    return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
+
+
+def isSame(self, s, t):
+    if not s and not t:
+        return True
+    if not s or not t or s.val != t.val:
+        return False
+    return self.isSame(s.left, t.left) and self.isSame(s.right, t.right)
+
+
+
+def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+    stack = (s, None)
+    candidate_roots = None
+    while stack:
+        node, stack = stack
+        if node:
+            if node.val == t.val:
+                candidate_roots = (node, candidate_roots)
+
+            stack = (node.left, (node.right, stack))
+    while candidate_roots:
+        candidate_root, candidate_roots = candidate_roots
+        stack = (candidate_root, t, None)
+        while stack:
+            candidate_node, subtree_node, stack = stack
+            if candidate_node is None and subtree_node is None:
+                continue
+            elif candidate_node and subtree_node and candidate_node.val == subtree_node.val:
+                stack = (candidate_node.left, subtree_node.left, (
+                        candidate_node.right, subtree_node.right, stack))
+                break
+        else:
+            return True
+    return False
+
+```
+
 ## Kth Smallest Element in a BST
 
 https://leetcode.com/problems/kth-smallest-element-in-a-bst/

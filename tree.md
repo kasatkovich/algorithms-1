@@ -74,9 +74,9 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
         for i in range(curr_level_size):
             curr_node = queue.pop(0)
             curr_level.append(curr_node.val)
-            if (curr_node.left):
+            if curr_node.left:
                 queue.append(curr_node.left)
-            if (curr_node.right):
+            if curr_node.right:
                 queue.append(curr_node.right)
 
         level_order.append(curr_level)

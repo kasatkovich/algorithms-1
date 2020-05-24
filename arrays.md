@@ -16,15 +16,15 @@ https://leetcode.com/problems/3sum/
 
 ```python
 def threeSum(self, nums):
-    new = set()
+    result = set()
     if len(nums) < 3:
-        return new
+        return result
     if nums.count(0) >= 3:
-        new.add((0, 0, 0))
+        result.add((0, 0, 0))
     nums_set = set(nums)
     numMax, numMin = max(nums_set), min(nums_set)
     if numMax <= 0 or numMin >= 0:
-        return new
+        return result
     setA = set(num for num in nums_set if (num > 0 and num <= -2 * numMin))
     setN = set(num for num in nums_set if (num < 0 and num >= -2 * numMax))
     count = collections.Counter(nums)
@@ -34,10 +34,8 @@ def threeSum(self, nums):
             if num1 in nums_set:
                 val = tuple(sorted([num1, numA, numN]))
                 if val.count(num1) <= count[num1] and val.count(numA) <= count[numA] and val.count(numN) <= count[numN]:
-                    new.add(val)
-    return new
-
-return level_order
+                    result.add(val)
+    return result
 
 ```
 

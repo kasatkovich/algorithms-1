@@ -29,12 +29,6 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 ```python
 def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-    if not l1 and not l2:
-        return None
-    if not l1:
-        return l2
-    if not l2:
-        return l1
     head = ListNode(0)
     index = head
     while l1 and l2:

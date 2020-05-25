@@ -1,8 +1,8 @@
 # Arrays
 
-+[Two Sum](#two-sum)
-+[3Sum](#3sum)
-+[Subarray Sum](#subarray-sum)
++ [Two Sum](#two-sum)
++ [3Sum](#3sum)
++ [Subarray Sum](#subarray-sum)
 
 ## Two Sum
 

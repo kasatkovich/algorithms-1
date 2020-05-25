@@ -31,6 +31,7 @@ https://leetcode.com/problems/3sum/
 
 
 ```python
+#first solution
 def threeSum(self, nums):
     nums.sort()
     result = []
@@ -55,8 +56,7 @@ def threeSum(self, nums):
                 three -= 1
     return result
 
-
-
+#second solution
 def threeSum(self, nums):
     result = set()
     if len(nums) < 3:

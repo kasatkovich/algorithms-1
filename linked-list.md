@@ -245,3 +245,41 @@ def getIntersectionNode(self, headA, headB):
 ## Sort List
 
 https://leetcode.com/problems/sort-list/
+
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    head = ListNode(0)
+    index = head
+    while l1 and l2:
+        if l1.val < l2.val:
+            index.next = l1
+            l1 = l1.next
+        else:
+            index.next = l2
+            l2 = l2.next
+        index = index.next
+    if not l1:
+        index.next = l2
+    if not l2:
+        index.next = l1
+    return head.next
+
+
+def middleNode(self, head: ListNode) -> ListNode:
+    slowPoint = head
+    fastPoint = head
+    while fastPoint.next and fastPoint.next.next:
+        slowPoint = slowPoint.next
+        fastPoint = fastPoint.next.next
+    return slowPoint
+
+
+def sortList(self, head: ListNode) -> ListNode:
+    if not head or not head.next:
+        return head
+    middle = self.middleNode(head)
+    right = self.sortList(middle.next)
+    middle.next = None
+    left = self.sortList(head)
+    return self.mergeTwoLists(left, right)
+
+

@@ -282,7 +282,7 @@ def getIntersectionNode(self, headA, headB):
 ## Sort List
 
 https://leetcode.com/problems/sort-list/
-
+```python
 def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
     head = ListNode(0)
     index = head
@@ -319,4 +319,4 @@ def sortList(self, head: ListNode) -> ListNode:
     left = self.sortList(head)
     return self.mergeTwoLists(left, right)
 
-
+```

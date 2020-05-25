@@ -154,6 +154,77 @@ https://leetcode.com/problems/linked-list-cycle/
 
 https://leetcode.com/problems/reorder-list/
 
+```python
+def reverseList(self, head):
+    prev = None
+    curr = head
+    while curr:
+        nextT = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nextT
+    return prev
+
+
+def reorderList(self, head):
+    if not head:
+        return head
+    fastPoint = head
+    slowPoint = head
+    while fastPoint and fastPoint.next:
+        slowPoint = slowPoint.next
+        fastPoint = fastPoint.next.next
+
+    tail = slowPoint
+    half = slowPoint
+    slowPoint = self.reverseList(half)
+    current = None
+    while current != tail:
+        current = head.next
+        head.next = slowPoint
+        head = slowPoint
+        slowPoint = current
+
+
+
+
+def dfs(self, node, head):
+    if not node:
+        return head
+    head = self.dfs(node.next, head)
+    if not head:
+        return
+    if head == node or head.next == node:
+        node.next = None
+        return
+    head_original_next = head.next
+    head.next = node
+    node.next = head_original_next
+    return head_original_next
+
+
+def reorderList(self, head: ListNode) -> None:
+    self.dfs(head, head)
+
+
+
+def reorderList(self, head):
+    s, copy = [], head
+    while copy:
+        s.append(copy)
+        copy = copy.next
+    while head:
+        if head.next == s[-1]:
+            head = head.next
+        if head == s[-1]:
+            head.next = None
+            return
+        replace, head.next = head.next, s.pop()
+        head.next.next = replace
+        head = head.next.next
+
+```
+
 ## Intersection Of Two Linked List
 
 https://leetcode.com/problems/intersection-of-two-linked-lists/

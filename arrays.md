@@ -30,6 +30,56 @@ def twoSum(self, nums, target):
 https://leetcode.com/problems/3sum/
 
 
+```python
+def threeSum(self, nums):
+    nums.sort()
+    result = []
+    for one in range(len(nums)-2):
+        if one > 0 and nums[one] == nums[one-1]:
+            continue
+        two = one + 1
+        three = len(nums) - 1
+        while two < three:
+            sum = nums[one] + nums[two] + nums[three]
+            if sum < 0:
+                two = two + 1
+            elif sum > 0:
+                three -= 1
+            else:
+                result.append([nums[one], nums[two], nums[three]])
+                while two < three and nums[two] == nums[two+1]:
+                    two += 1
+                while three > two and nums[three] == nums[three-1]:
+                    three -= 1
+                two += 1
+                three -= 1
+    return result
+
+
+
+def threeSum(self, nums):
+    result = set()
+    if len(nums) < 3:
+        return result
+    if nums.count(0) >= 3:
+        result.add((0, 0, 0))
+    nums_set = set(nums)
+    numMax, numMin = max(nums_set), min(nums_set)
+    if numMax <= 0 or numMin >= 0:
+        return result
+    setA = set(num for num in nums_set if (num > 0 and num <= -2 * numMin))
+    setN = set(num for num in nums_set if (num < 0 and num >= -2 * numMax))
+    count = collections.Counter(nums)
+    for numA in setA:
+        for numN in setN:
+            num1 = -numA-numN
+            if num1 in nums_set:
+                val = tuple(sorted([num1, numA, numN]))
+                if val.count(num1) <= count[num1] and val.count(numA) <= count[numA] and val.count(numN) <= count[numN]:
+                    result.add(val)
+    return result
+
+```
 
 ## Subarray Sum
 

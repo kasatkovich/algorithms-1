@@ -1,16 +1,16 @@
 # Tree
 
-+[Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
-+[Symmetric Tree](#symmetric-tree)
-+[Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
-+[Same Tree](#same-tree)
-+[Invert Binary Tree](#invert-binary-tree)
-+[Path Sum](#path-sum)
-+[Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
-+[Subtree of Another Tree](#subtree-of-another-tree)
-+[Kth Smallest Element in a BST](#kth-smallest-element-in-a-bst)
-+[Validate Binary Search Tree](#validate-binary-search-tree)
-+[Binary Search Tree Iterator](#binary-search-tree-iterator)
++ [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
++ [Symmetric Tree](#symmetric-tree)
++ [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
++ [Same Tree](#same-tree)
++ [Invert Binary Tree](#invert-binary-tree)
++ [Path Sum](#path-sum)
++ [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
++ [Subtree of Another Tree](#subtree-of-another-tree)
++ [Kth Smallest Element in a BST](#kth-smallest-element-in-a-bst)
++ [Validate Binary Search Tree](#validate-binary-search-tree)
++ [Binary Search Tree Iterator](#binary-search-tree-iterator)
 
 ## Binary Tree Inorder Traversal
 
@@ -39,6 +39,7 @@ def inorderTraversal(self, root):
 https://leetcode.com/problems/symmetric-tree/
 
 ```python
+#first solution
 def isSymmetric(self, root: TreeNode) -> bool:
     if root is None:
         return True
@@ -52,7 +53,7 @@ def isSymetricalHelper(self, left: TreeNode, right: TreeNode):
         return False
     return self.isSymetricalHelper(left.left, right.right) and self.isSymetricalHelper(left.right, right.left)
 
-
+#second solution
 def isSymmetric(self, root: TreeNode) -> bool:
     if root:
         queue = deque([root, root])
@@ -93,7 +94,7 @@ def maxDepth(self, root):
 https://leetcode.com/problems/same-tree/
 
 ```python
-
+#first solution
 def isSameTree(self, p, q):
     if not p and not q:
         return True
@@ -103,6 +104,7 @@ def isSameTree(self, p, q):
         return False
     return self.isSameTree(p.right, q.right) and self.isSameTree(p.left, q.left)
 
+#second solution
 def isSameTree(self, p, q):
 
     def check_nodes(p, q):
@@ -193,6 +195,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
 https://leetcode.com/problems/subtree-of-another-tree/
 
 ```python
+#first solution
 def isSubtree(self, s, t):
     if not t:
         return True
@@ -211,7 +214,7 @@ def isSame(self, s, t):
     return self.isSame(s.left, t.left) and self.isSame(s.right, t.right)
 
 
-
+#second solution
 def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
     stack = (s, None)
     candidate_roots = None
